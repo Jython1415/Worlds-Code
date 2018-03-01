@@ -2,11 +2,12 @@
 For managing our code for worlds bot
 
 Abbreviations:
-  I tend to shorten mogo lift to just mogo so hopefully that doesn't confuse you
-  MoE = margin of error
+	I tend to shorten mogo l, ift to just mogo so hopefully that doesn't confuse you
+	MoE = margin of error
   vel = velocity
   pos = position, usually could mean the encoder value of the sensor attached to the arm/wheel
   rot = rotation or angle
+	pwr = power, the motor power input
 
 Goals:
   When we program for the autonomous routine I want it to be so that we can just use these functions and it would run.
@@ -28,6 +29,9 @@ Goals:
 			}
 			
 		The setPower function would use an array that makes power to rpm relation linear
+			https://docs.google.com/spreadsheets/d/13x8a7H3O3LsVOiK3bTbOEOiYsXpDXGmv9VnEylI1J2A/edit#gid=0
+			Link for motor mapping spreadsheet I developed over summer.
+			
 			setPower(int pwr, int port) {
 				switch (port) {
 					case 1 :
