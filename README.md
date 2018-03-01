@@ -2,7 +2,7 @@
 For managing our code for worlds bot
 
 Abbreviations:
-	I tend to shorten mogo l, ift to just mogo so hopefully that doesn't confuse you
+	I tend to shorten mogo lift to just mogo so hopefully that doesn't confuse you
 	MoE = margin of error
   vel = velocity
   pos = position, usually could mean the encoder value of the sensor attached to the arm/wheel
