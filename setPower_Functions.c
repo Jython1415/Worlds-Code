@@ -22,5 +22,48 @@ int motorMapping[255] = {-127,
 }
 
 void setPower(int power, int port) {
-  
+  switch (port) {
+    case 1 :
+      motor[port1] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 2 :
+      motor[port2] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 3 :
+      motor[port3] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 4 :
+      motor[port4] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 5 :
+      motor[port5] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 6 :
+      motor[port6] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 7 :
+      motor[port7] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 8 :
+      motor[port8] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 9 :
+      motor[port9] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case 10 :
+      motor[port10] = motorMapping[constrain(power,-127,127)+127];
+      break;
+    case -1:
+      setPower(constrain(power,-127,127)+127,1);
+      setPower(constrain(power,-127,127)+127,2);
+      setPower(constrain(power,-127,127)+127,3);
+      setPower(constrain(power,-127,127)+127,4);
+      setPower(constrain(power,-127,127)+127,5);
+      setPower(constrain(power,-127,127)+127,6);
+      setPower(constrain(power,-127,127)+127,7);
+      setPower(constrain(power,-127,127)+127,8);
+      setPower(constrain(power,-127,127)+127,9);
+      setPower(constrain(power,-127,127)+127,10);
+      break;
+  }
 }
