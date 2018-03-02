@@ -1,6 +1,8 @@
 # Worlds-Code
 	For managing our code for worlds bot
 
+	See claw control for a outine for how to write the different tasks
+
 	Abbreviations:
 		I tend to shorten mogo lift to just mogo so hopefully that doesn't confuse you
 		MoE = margin of error
