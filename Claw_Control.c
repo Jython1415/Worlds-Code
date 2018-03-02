@@ -6,6 +6,9 @@ bool clawCtrl_done = false;// this variable is used by the task to let the main 
 													 // variable for that specific task because the done bool is also used for the task to determine
 													 // when to exit the loop and end control.
 
+void startClawCtrl() { // the function used when we program the route. my idea would be to have a vaiable for open/close be the input
+	startTask(clawCtrl);
+}
 
 task clawCtrl() {
   while (clawCtrl_run == true && clawCtrl_done == false) { // while main function says run and we aren't done yet
