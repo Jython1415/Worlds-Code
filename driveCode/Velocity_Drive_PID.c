@@ -3,7 +3,7 @@ bool velDrive_done = false;
 
 task velDrivePID() {
 		while (velDrive_run == true && velDrive_done == false) {
-		//I'm probably going to do this.
+		//An idea I had for fast movement that doesn't have to be as precise
 		
 		wait1Msec(25);
 	}
