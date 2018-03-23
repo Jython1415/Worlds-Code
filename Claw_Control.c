@@ -8,6 +8,7 @@ bool clawCtrl_done = false;// this variable is used by the task to let the main 
 
 void startClawCtrl() { // the function used when we program the route. my idea would be to have a vaiable for open/close be the input
 	startTask(clawCtrl);
+	sadlfkjdf
 }
 
 task clawCtrl() {
