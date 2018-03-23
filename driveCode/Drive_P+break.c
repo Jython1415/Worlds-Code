@@ -1,9 +1,9 @@
-bool velDrive_run = false;
-bool velDrive_done = false;
+bool pBreak_run = false; // this on the variable below are bool used by the main task to make sure the task is running when
+bool pBreak_done = false;// it should be.
 
 task velDrivePID() {
-		while (velDrive_run == true && velDrive_done == false) {
-		//An idea I had for fast movement that doesn't have to be as precise
+		while (pBreak_run == true && pBreak_done == false) {
+		
 		
 		wait1Msec(25);
 	}
