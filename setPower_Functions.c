@@ -67,3 +67,26 @@ void setPower(int power, int port) {
       break;
   }
 }
+
+void setLeft(int power) {
+  setPower(power, 3);
+  setPower(power, 4);
+}
+
+void setRight(int power) {
+  setPower(power, 5);
+  setPower(power, 9);
+}
+
+void setArm(int power) {
+  setPower(power, 6);
+}
+
+void setMogo(int power) {
+  setPower(power, 2);
+  setPower(power, 8);
+}
+
+void setClaw(int power) {
+  setPower(power, 7);
+}
