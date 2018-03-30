@@ -1,7 +1,7 @@
 bool posDrive_run = false;
 bool posDrive_done = false;
 
-task posDrivePID() {
+task posDrivePD() {
 	while (posDrive_run == true && posDrive_done == false) {
 		//calculate base speed using PID
 			//tune the constants however you want. there are some great explanations online
