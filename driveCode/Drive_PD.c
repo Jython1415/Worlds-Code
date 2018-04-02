@@ -33,3 +33,6 @@ task posDrivePD() {
         }
     }
 }
+//calculate auto straightening amount (put it into a variable using gyro & p value)
+//add that amount from the right side
+    //if adding that amount to the right side makes it greater than 127 then subtract it from the left side instead.
