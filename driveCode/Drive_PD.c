@@ -4,6 +4,7 @@ float kp_drive = 0.24;
 float ki_drive = 0;
 float kd_drive = 0.16;
 float dT_drive;
+unsigned long lastTime;
 float error_drive;
 float preverror_drive;
 float pwr_drive;
@@ -26,11 +27,12 @@ task posDrivePD() {
 
         pwr_arm = (error_drive*kp_drive) + (integral_drive*ki_drive) + (derivative_drive*kd_drive);
         setArm(pwr_drive);
-        wait1Msec(25);
-
+        
         if(abs(error_drive) < /*certain value*/ && driveMode = 0){
             posDrive_done = true;
         }
+        lastTime = nPgmTime;
+        wait1Msec(25);
     }
 }
 //calculate auto straightening amount (put it into a variable using gyro & p value)
