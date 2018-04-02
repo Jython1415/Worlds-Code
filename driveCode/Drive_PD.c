@@ -1,29 +1,35 @@
 bool posDrive_run = false;
 bool posDrive_done = false;
+float kp_drive = 0.24;
+float ki_drive = 0;
+float kd_drive = 0.16;
+float dT_drive;
+float error_drive;
+float preverror_drive;
+float pwr_drive;
+float integral_drive = 0;
+float derivative_drive = 0;
+float target_drive;
+int driveMode = 0;
 
-task posDrivePID() {
-	while (posDrive_run == true && posDrive_done == false) {
-		//calculate base speed using PID
-			//tune the constants however you want. there are some great explanations online
-			//what I tend to do is put the p value so that it barely doesn't make it
-			//and then use the i value as a way to have a minimum adjustment value so that
-			//it gets the last bit
-			
-			//actual pid would be so that you raise the p value until you have a steadily
-			//decreasing oscillation. then put in d to subtract power which makes the whole
-			//thing smoother. in this case the i term would be optional to decrease error
-			//to zero towards the very end.
-		
-		//calculate auto straightening amount (put it into a variable using gyro & p value)
-		
-		//add that amount from the right side
-			//if adding that amount to the right side makes it greater than 127 then subtract
-			//it from the left side instead.
-		
-		//set power
-		
-		//check to see if you've reached the destination (set posDrive_done = true if it's done)
-	
-		wait1Msec(25);
-	}
+task posDrivePD() {
+    while (posDrive_run == true && posDrive_done == false) {
+        error_drive = target_drive - SensorValue[];
+        derivative_drive = error_drive - preverror_drive;
+        preverror_drive = error_drive;
+        if(integral_drive > /*too much*/){
+            ki_drive = 0;
+        }
+        else{
+            integral_drive = integral_drive + error_drive;
+        }
+
+        pwr_arm = (error_drive*kp_drive) + (integral_drive*ki_drive) + (derivative_drive*kd_drive);
+        setArm(pwr_drive);
+        wait1Msec(25);
+
+        if(abs(error_drive) < /*certain value*/ && driveMode = 0){
+            posDrive_done = true;
+        }
+    }
 }
