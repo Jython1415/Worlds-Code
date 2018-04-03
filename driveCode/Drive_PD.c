@@ -4,6 +4,7 @@ float kp_drive = 0.24;
 float ki_drive = 0;
 float kd_drive = 0.16;
 float dT_drive;
+float multiplier_driver; //temporarily stores the number that derivative_drive is multiplied by
 unsigned long lastTime;
 float error_drive;
 float preverror_drive;
@@ -24,14 +25,18 @@ task posDrivePD() {
         else{
             integral_drive = integral_drive + error_drive;
         }
-
-        pwr_arm = (error_drive*kp_drive) + (integral_drive*ki_drive) + (derivative_drive*kd_drive);
+        
+        dT_drive = nPgmTime - lastTime; // Calculating time since last execution
+        multiplier_driver = 25.0/dT_drive; // So that we find our actual rate of change.
+        pwr_arm = (error_drive*kp_drive) + (integral_drive*ki_drive) + (derivative_drive*kd_drive*multiplier_driver);
+        // made it so derivative term is also multiplied by multiplier
         setArm(pwr_drive);
+        lastTime = nPgmTime; // I moved last time here so that I records the time when power was last set
         
         if(abs(error_drive) < /*certain value*/ && driveMode = 0){
             posDrive_done = true;
         }
-        lastTime = nPgmTime;
+        
         wait1Msec(25);
     }
 }
