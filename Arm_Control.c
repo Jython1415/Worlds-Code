@@ -32,6 +32,21 @@ task armCtrl() {
             armCtrl_done = true;
         }
     }
+    while (armCtrl_run == false && armCtrl_done == false){
+        armError = armTarget - SensorValue[arm_pot];
+        armIntegral = armIntegral + armError;
+        armDerivative = armError - armPreverror;
+        armPreverror = armError;
+
+        arm_pwr = (armError*armKp) + (armIntegral*armKi) + (armDerivative*armKd);
+
+        if(arm_pot!=/*value*/){
+          setArm(arm_pwr);
+        }
+        else{
+          setArm(0);
+        }
+    }
 }
 
 void arm(float aim, int Mode){
