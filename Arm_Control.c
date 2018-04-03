@@ -17,6 +17,7 @@ task armCtrl() {
         error_arm = target_arm - SensorValue[arm_pot];
         derivative_arm = error_arm - preverror_arm;
         preverror_arm = error_arm;
+        
         if(integral_arm > /*too much*/){
             ki_arm = 0;
         }
